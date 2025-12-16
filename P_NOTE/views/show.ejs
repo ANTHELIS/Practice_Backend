@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"rel="stylesheet"/>
+</head>
+<body>
+    <div class="main w-screen h-screen bg-zinc-800 p-10">
+        <div class="home px-2 py-1 text-neutral-100 bg-gray-700 w-fit rounded-lg mb-2 hover:bg-gray-600">
+            <a href="/"><i class="ri-home-2-line"></i></a>
+        </div>
+        <div class="container text-white bg-zinc-600 w-[80%] h-fit px-6 py-3 rounded-lg">
+            <div class="filename bg-gray-700 px-3 py-1 rounded-md w-fit">
+                <%=pFilename%>
+            </div>
+            <div class="content mt-4 text-lg tracking-tight ">
+                <%=data%>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

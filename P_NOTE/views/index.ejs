@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main w-screen h-screen bg-zinc-800">
+        <div class="form text-white p-10">
+            <form action="/create" method="post">
+                <input name="tittle" class="block w-full bg-zinc-600 rounded-sm px-4 py-2  outline-none" type="text" placeholder="Tittle goes here...">
+                <textarea name="content" class="block w-full bg-zinc-600 rounded-sm px-4 py-2  outline-none resize-none mt-4" placeholder="Write something..."></textarea>
+                <button class="mt-2 bg-green-600 rounded-md px-2 py-1">Save</button>
+            </form>
+        </div>
+
+        <div class="tasks p-10 text-white flex gap-3 flex-wrap">
+
+            <% if(files.length > 0 ){ %>
+                <% files.forEach(val=>{ %>
+                    <div class="task w-70 px-4 py-2 rounded-md bg-zinc-600">
+                        <h1 class="text-lg tracking-tighter "><%=val%></h1>
+                        <a class="text-blue-300 hover:text-blue-400 mt-2 inline-block" href="/file/<%=val%>">Read more...</a>
+                    </div>
+                <% }) %>
+            <% } else {  %>
+                <div class="no-tasks text-zinc-500">No task yet</div>
+            <% } %>
+
+
+
+        </div>
+
+    </div>
+</body>
+</html>

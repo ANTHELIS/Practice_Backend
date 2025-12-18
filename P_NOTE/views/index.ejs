@@ -17,22 +17,22 @@
         </div>
 
         <div class="tasks p-10 text-white flex gap-3 flex-wrap">
-
             <% if(files.length > 0 ){ %>
                 <% files.forEach(val=>{ %>
                     <div class="task w-70 px-4 py-2 rounded-md bg-zinc-600">
-                        <h1 class="text-lg tracking-tighter "><%=val%></h1>
-                        <a class="text-blue-300 hover:text-blue-400 mt-2 inline-block" href="/file/<%=val%>">Read more...</a>
+                        <div class="top flex justify-between">
+                            <h1 class="text-lg tracking-tighter w-fit "><%=val.replace(".txt", "")%></h1>
+                            <a class="text-zinc-300 text-sm bg-zinc-700 px-2 py-1 rounded-sm hover:text-zinc-400" href="/edit/<%=val%>" >edit tittle</a>
+                        </div>
+                        <div class="bottom">
+                            <a class="text-blue-300 hover:text-blue-400 mt-2 inline-block" href="/file/<%=val%>">Read more...</a>
+                        </div>
                     </div>
                 <% }) %>
             <% } else {  %>
                 <div class="no-tasks text-zinc-500">No task yet</div>
             <% } %>
-
-
-
         </div>
-
     </div>
 </body>
 </html>

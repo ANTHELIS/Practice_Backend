@@ -25,6 +25,17 @@ app.get("/file/:filename", (req, res)=>{
     })
 })
 
+app.get("/edit/:filename", (req, res)=>{
+    res.render('edit', {filename: req.params.filename});
+})
+app.post("/edit", (req, res)=>{
+    fs.rename(`./files/${req.body.c_tittle}.txt`, `./files/${req.body.n_tittle}.txt`, err=>{
+        res.redirect("/");
+        console.log(err);
+    })
+})
+
+
 
 app.listen(3000, ()=>{
     console.log("server running at port 3000");

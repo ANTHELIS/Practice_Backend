@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+    <div class="w-screen h-screen bg-zinc-900 text-white p-8">
+        <h1 class="text-2xl mb-6">Create User</h1>
+        <form class="flex flex-col gap-3" action="/register" method="post">
+            <input class="w-1/3 px-3 py-1 bg-transparent outline-none border-2 border-zinc-600 rounded-md" type="text" placeholder="Username" name="username">
+            <input class="w-1/3 px-3 py-1 bg-transparent outline-none border-2 border-zinc-600 rounded-md" type="text" placeholder="Name" name="name">
+            <input class="w-1/3 px-3 py-1 bg-transparent outline-none border-2 border-zinc-600 rounded-md" type="number" placeholder="age" name="age">
+            <input class="w-1/3 px-3 py-1 bg-transparent outline-none border-2 border-zinc-600 rounded-md" type="email" placeholder="email" name="email">
+            <input class="w-1/3 px-3 py-1 bg-transparent outline-none border-2 border-zinc-600 rounded-md" type="password" placeholder="password" name="password">
+            <input class="w-fit px-3 py-1 mt-3 cursor-pointer rounded-md bg-blue-900" type="submit" value="Create">
+        </form>
+    </div>
+    
+</body>
+</html>

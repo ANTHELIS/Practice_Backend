@@ -6,14 +6,17 @@ const connectToDB = require("./config/db");
 connectToDB();
 const userModel = require("./models/user.model");
 const postModel = require("./models/post.model");
+const upload = require("./config/multerconfig");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/', (req, res)=>{
     res.render('index');
@@ -122,6 +125,18 @@ app.get('/delete/:postId', isLoggedIn, async (req, res)=>{
     res.redirect("/profile");
 })
 
+
+app.get('/profile/upload', isLoggedIn, (req, res)=>{
+    res.render("profileUpload")
+})
+
+app.post('/profilepicupload', isLoggedIn, upload.single('image'), async(req, res)=>{
+    const user = await userModel.findOne({_id: req.user.userid});
+    user.profilepic = req.file.filename;
+    await user.save();
+    res.redirect("/profile");
+    
+})
 
 app.listen(3000, ()=>{
     console.log("server is running at port 3000");
